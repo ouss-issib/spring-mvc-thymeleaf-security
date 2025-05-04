@@ -13,7 +13,7 @@
 
         <h2 class="mt-2">Products List 💥</h2>
         <div class="p-4">
-            <a th:href="@{/newProduct}" class="btn btn-primary">New Produit</a>
+            <a th:href="@{/admin/newProduct}" class="btn btn-primary">New Produit</a>
         </div>
         <table class="table p-3 ">
             <thead>
@@ -28,7 +28,7 @@
                     <td th:text="${p.price}"></td>
                     <td th:text="${p.quantity}"></td>
                     <td >
-                        <a onclick="return confirm('Voulez vous vraiment le supprimer ?')" th:href="@{/delete(id=${p.id})}" class="btn btn-danger"> Delete</a>
+                        <a onclick="return confirm('Voulez vous vraiment le supprimer ?')" th:href="@{/admin/delete(id=${p.id})}" class="btn btn-danger"> Delete</a>
                     </td>
                 </tr>
             </tbody>
