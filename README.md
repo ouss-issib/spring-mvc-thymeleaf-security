@@ -53,4 +53,4 @@ Ce dépôt contient une implémentation pratique d'une application web utilisant
     mvn spring-boot:run
 
 4. Accéder à l'application :
-    http://localhost:8080
+    http://localhost:9090
