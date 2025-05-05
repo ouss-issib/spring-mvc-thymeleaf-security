@@ -1,5 +1,6 @@
 package ma.enset.springmvcthymeleafsecurityapp.web;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import ma.enset.springmvcthymeleafsecurityapp.entities.Product;
 import ma.enset.springmvcthymeleafsecurityapp.repositories.ProductRepository;
@@ -30,8 +31,7 @@ public class ProductController {
         return "products";
     }
 
-
-    @DeleteMapping("/admin/delete")
+    @PostMapping("/admin/delete")
     public String delete(@RequestParam(name = "id") Long id) {
         productRepository.deleteById(id);
         return "redirect:/";
@@ -42,7 +42,6 @@ public class ProductController {
         model.addAttribute("product", new Product());
         return "new-product";
     }
-
 
     @PostMapping("/admin/saveProduct")
     public String saveProduct(@Valid Product product, BindingResult bindingResult,Model model) {
@@ -56,6 +55,17 @@ public class ProductController {
     @GetMapping("/notAuthorized")
     public String notAuthorized() {
         return "notAuthorized";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession httpSession){
+        httpSession.invalidate();
+        return "login";
     }
 
 }
