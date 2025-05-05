@@ -29,7 +29,7 @@ Ce dépôt contient une implémentation pratique d'une application web utilisant
 
 | Ajouter un produit | Supprimer un Produit | Modifier un Produit |
 |---|---|---|
-| ![Liste users](./screenshots/add-product.png) | ![Détails](./screenshots/delete-product.png) | ![Détails](./screenshots/edit-product.png) | 
+| ![Liste users](./screenshots/add-product.png) | ![Détails](./screenshots/delete-product.png) | ![Détails](./screenshots/update-product.png) | 
 
 | Validation avant l'ajout du produit| Validation avant la modification du produit |
 |---|---|
