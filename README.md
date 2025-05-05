@@ -1,6 +1,6 @@
 # Activité Pratique d'une application Web Spring MVC
 
-Ce dépôt contient une implémentation pratique d'une application web utilisant **Spring MVC**, **Thymeleaf** et **Spring Security**. Cette activité s'inscrit dans le cadre du cours de **Java Avancé** encadré par **M. Abdelmajid Bousselham**.
+Ce dépôt contient une implémentation pratique d'une application web utilisant **Spring MVC**, **Thymeleaf** et **Spring Security**. Cette activité s'inscrit dans le cadre du cours de **Java JEE** encadré par **Mr YOUSSFI Mohamed**.
 
 ## Aperçu de l'application
 
