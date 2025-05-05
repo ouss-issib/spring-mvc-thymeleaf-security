@@ -15,11 +15,16 @@
         <div class="row">
             <div class="col col-md-6 offset-3">
                 <div class="card ">
-                    <div class="card-header bg-primary text-white">
-                        <h3>Add a new Product 😜</h3>
+                    <div class="card-header bg-warning text-white">
+                        <h3>Edit a new Product 😜</h3>
                     </div>
                     <div class="card-body">
-                        <form method="post" th:action="@{/admin/saveProduct}">
+                        <form method="post" th:action="@{/admin/edit}" th:object="${product}">
+
+<!--                            <input type="hidden" name="_method" value="put"/>-->
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+                            <input type="hidden" th:field="*{id}" />
                             <div class="m-3">
                                 <label class="form-label">Name</label>
                                 <input type="text" name="name" class="form-control" th:value="${product.name}">
@@ -35,8 +40,11 @@
                                 <input type="number" name="quantity" class="form-control" th:value="${product.quantity}">
                                 <span th:errors="${product.quantity}" class="text-danger"></span>
                             </div>
+
+
+
                             <div class="m-3 mt-4 d-block text-center">
-                                <button type="submit" class="btn btn-primary w-50 ">Save</button>
+                                <button type="submit" class="btn btn-primary w-50 ">Update</button>
                             </div>
                         </form>
 

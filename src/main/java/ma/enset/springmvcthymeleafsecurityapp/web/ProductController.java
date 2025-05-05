@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProductController {
@@ -66,6 +63,22 @@ public class ProductController {
     public String logout(HttpSession httpSession){
         httpSession.invalidate();
         return "login";
+    }
+
+    @GetMapping("/admin/updateProduct")
+    public String updateProduct(@RequestParam(name = "id") Long id, Model model){
+        Product product = productRepository.findById(id).get();
+        model.addAttribute("product",product);
+        return "edit-product";
+    }
+
+    @PostMapping("/admin/edit")
+    public String edit(@ModelAttribute("product") @Valid Product product,BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()) {
+            return "edit-product";
+        }
+        productRepository.save(product);
+        return "redirect:/user/index";
     }
 
 }
