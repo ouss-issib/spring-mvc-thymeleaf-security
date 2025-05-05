@@ -33,10 +33,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
                 .formLogin(Customizer.withDefaults())
+                .csrf(csrf->csrf.disable())
                 .authorizeHttpRequests(ar->ar.requestMatchers("/user/**").hasRole("USER"))
                 .authorizeHttpRequests(ar->ar.requestMatchers("/admin/**").hasRole("ADMIN"))
                 .authorizeHttpRequests(ar->ar.requestMatchers("/public/**").permitAll())
                 .authorizeHttpRequests(ar->ar.anyRequest().authenticated())
+                .exceptionHandling(eh->eh.accessDeniedPage("/notAuthorized"))
                 .build();
     }
 }

@@ -31,7 +31,7 @@ public class ProductController {
     }
 
 
-    @GetMapping("/admin/delete")
+    @DeleteMapping("/admin/delete")
     public String delete(@RequestParam(name = "id") Long id) {
         productRepository.deleteById(id);
         return "redirect:/";
@@ -52,4 +52,10 @@ public class ProductController {
         productRepository.save(product);
         return "redirect:/user/index";
     }
+
+    @GetMapping("/notAuthorized")
+    public String notAuthorized() {
+        return "notAuthorized";
+    }
+
 }
