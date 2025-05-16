@@ -23,13 +23,13 @@ Ce dépôt contient une implémentation pratique d'une application web utilisant
 
 ## Captures d'écran
 
-| Page de connexion | Tableau de bord utilisateur | Tableau de bord utilisateur (admin) |
-|---|---|---|
-| ![Login](./screenshots/login-page.png) | ![Dashboard](./screenshots/user-home.png) | ![Access Denied](./screenshots/admin-home.png) |
+| Page de connexion | Home Page |Tableau de bord utilisateur | Tableau de bord utilisateur (admin) |
+|---|---|---|---|
+| ![Login](./screenshots/login-page.png) | ![Login](./screenshots/home-page.png) | ![Dashboard](./screenshots/user-home.png) | ![Access Denied](./screenshots/admin-home.png) |
 
-| Ajouter un produit | Supprimer un Produit | Modifier un Produit |
-|---|---|---|
-| ![Liste users](./screenshots/add-product.png) | ![Détails](./screenshots/delete-product.png) | ![Détails](./screenshots/update-product.png) | 
+| Ajouter un produit | Supprimer un Produit | Modifier un Produit | Chercher un Produit par son nom |
+|---|---|---|---|
+| ![Liste users](./screenshots/add-product.png) | ![Détails](./screenshots/delete-product.png) | ![Détails](./screenshots/update-product.png) | ![Détails](./screenshots/search-by-name.png) | 
 
 | Validation avant l'ajout du produit| Validation avant la modification du produit |
 |---|---|
