@@ -39,18 +39,23 @@ Ce dépôt contient une implémentation pratique d'une application web utilisant
 
 ## Comment Exécuter
 
-1. Cloner le dépôt :
+1. **Informations de connexion :**  
+   - Utilisateur : `user1`, mot de passe : `123321`
+   - Utilisateur : `user2`, mot de passe : `123321`  
+   - Admin : `admin`, mot de passe : `123321`
+     
+2. Cloner le dépôt :
    ```bash
    git clone https://github.com/ouss-issib/spring-mvc-thymeleaf-security.git
 
-2. Naviguer dans le répertoire du dépôt :
+3. Naviguer dans le répertoire du dépôt :
    ```bash
    cd spring-mvc-thymeleaf-security
 
-3. Compiler et exécuter les fichiers Java :
+4. Compiler et exécuter les fichiers Java :
    ```bash
     mvn clean install
     mvn spring-boot:run
 
-4. Accéder à l'application :
+5. Accéder à l'application :
     http://localhost:9090
