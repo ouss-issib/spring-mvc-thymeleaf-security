@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.util.List;
 
 @Controller
 public class ProductController {
@@ -16,14 +19,17 @@ public class ProductController {
     @Autowired
     ProductRepository productRepository;
 
-
     @GetMapping("/")
-    public String home() {
-        return "redirect:/user/index";
+    public String home(Model model) {
+        String currentUri = ServletUriComponentsBuilder.fromCurrentRequestUri().build().getPath();
+        model.addAttribute("currentUri", currentUri);
+        return "home";
     }
 
     @GetMapping("/user/index")
     public String index(Model model) {
+        String currentUri = ServletUriComponentsBuilder.fromCurrentRequestUri().build().getPath();
+        model.addAttribute("currentUri", currentUri);
         model.addAttribute("productList" ,productRepository.findAll());
         return "products";
     }
@@ -36,9 +42,22 @@ public class ProductController {
 
     @GetMapping("/admin/newProduct")
     public String newProduct(Model model){
+        String currentUri = ServletUriComponentsBuilder.fromCurrentRequestUri().build().getPath();
+        model.addAttribute("currentUri", currentUri);
         model.addAttribute("product", new Product());
         return "new-product";
     }
+
+    @GetMapping("/admin/searchProduct")
+    public String searchProduct(@RequestParam(name = "q") String q,Model model){
+        String currentUri = ServletUriComponentsBuilder.fromCurrentRequestUri().build().getPath();
+        model.addAttribute("currentUri", currentUri);
+        List<Product> productsByName = productRepository.findProductsByNameContainingIgnoreCase(q);
+        model.addAttribute("query",q);
+        model.addAttribute("productList", productsByName);
+        return "products";
+    }
+
 
     @PostMapping("/admin/saveProduct")
     public String saveProduct(@Valid Product product, BindingResult bindingResult,Model model) {
@@ -67,6 +86,8 @@ public class ProductController {
 
     @GetMapping("/admin/updateProduct")
     public String updateProduct(@RequestParam(name = "id") Long id, Model model){
+        String currentUri = ServletUriComponentsBuilder.fromCurrentRequestUri().build().getPath();
+        model.addAttribute("currentUri", currentUri);
         Product product = productRepository.findById(id).get();
         model.addAttribute("product",product);
         return "edit-product";

@@ -6,8 +6,9 @@
 >
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/webjars/bootstrap/5.3.5/css/bootstrap.min.css">
+    <title> E-Products </title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,10 +20,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+          <a  class="nav-link" th:classappend="${currentUri == '/'} ? 'active': ''" aria-current="page" th:href="@{/}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" th:href="@{/user/index}">Products</a>
+          <a  class="nav-link" th:classappend="${currentUri.startsWith('/user/index')} ? 'active' : ''" th:href="@{/user/index}">Products</a>
         </li>
 
 
